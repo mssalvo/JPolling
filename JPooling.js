@@ -10,6 +10,7 @@
  *  @example restart
  *  polling.restart()
  *  
+ *  https://github.com/mssalvo/JPolling
  * */
 
 function JPolling(){
