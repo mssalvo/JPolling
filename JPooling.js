@@ -2,6 +2,10 @@
  * @author salvo mariniello - salvo.mariniello@gmail.com 
  *  https://github.com/mssalvo/JPolling
  *
+ *  Copyright and license :
+ *  GNU General Public License v3.0
+ *  https://github.com/mssalvo/JPolling/blob/master/LICENSE
+ *
  * @example start
  *  var polling= new JPolling();
  *
