@@ -15,16 +15,16 @@ and open the template in the editor.
     <body>
         <script>
          var polling= new JPolling();
-            polling.start(6000,myBeforefuncTest)
+            polling.start(2000,myBeforefuncTest)
             
             function myBeforefuncTest(){
-              alert("hello! Test JPolling..")  
+              console.log("hello! Test JPolling..")  
             }
         </script>
         
         <script>
         
-          // Another example
+          // Another example:
          var polling2= new JPolling();
         //parameters: first time function your function, time second function your function
         polling2.start(500,myBeforefunction,30000,mySecondfunction)      
