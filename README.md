@@ -28,7 +28,7 @@ polling.start(100,myBeforefunction,30000,mySecondfunction)
    console.log("progress "+ctx.progress)
            }
         
-function mySecondafunction(ctx){
+function mySecondfunction(ctx){
         ctx.stop();     
     console.log("STOPPPPPP!!!! Test JPolling..")       
             }
