@@ -28,11 +28,13 @@ function JPolling() {
     this.time = 1000;//Default 1 secondo
     this.secondCount = 0;
     this.timeEnd = 600000;//Default 10 minuti
-	this.progress=0;
+    this.progress=0;
     this.callIn = function (ts, fn, fnEnd) {
-        ts.secondCount++;
-		ts.progress=((ts.timeEnd-(ts.timeEnd-(ts.time*ts.secondCount)))/ts.timeEnd*100).toFixed(3);   
-		ts.callOut(ts, fn, fnEnd)
+        ts.isTimeout ? (function (ts) {
+            ts.secondCount++;
+            ts.progress = ((ts.timeEnd - (ts.timeEnd - (ts.time * ts.secondCount))) / ts.timeEnd * 100).toFixed(3);
+        })(ts) : function () {};
+        ts.callOut(ts, fn, fnEnd)
     };
     this.callOut = function (ts, fn, fnEnd) {
         setTimeout(function () {
