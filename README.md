@@ -17,25 +17,20 @@ __Example restart__
 polling.restart() 
 ```
 
-# JPolling
-JS polling
+__Second Example__
 
-
-__Example 2° __
+__Example 2__
 ```
-			var polling= new JPolling();
-       
-            polling.start(100,myPrimafunction,30000,mySecondafunction)
-            
-            function myPrimafunction(ctx){
-
-		    console.log("progress "+ctx.progress)
+var polling= new JPolling();
+polling.start(100,myBeforefunction,30000,mySecondfunction)      
+      
+ function myBeforefunction(ctx){
+   console.log("progress "+ctx.progress)
+           }
         
-            }
-        
-		function mySecondafunction(ctx){
+function mySecondafunction(ctx){
         ctx.stop();     
-        console.log("STOPPPPPP!!!! Test JPolling..")  
-              
+    console.log("STOPPPPPP!!!! Test JPolling..")       
             }
+	    
 ```            
