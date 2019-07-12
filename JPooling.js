@@ -1,5 +1,6 @@
 /**
  * @author salvo mariniello - salvo.mariniello@gmail.com 
+ *  https://github.com/mssalvo/JPooling
  *
  * @example start
  *  var polling= new JPolling();
