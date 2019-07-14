@@ -21,7 +21,7 @@
  *  JPolling.get('nameProcessUnique').start(500,myBeforefunction,60000,mySecondfunction)  
  *  Good thing and always assign a unique process name.
  *  
- *  @see Controll Singol Process
+ *  @see Controll Single Process
  *  @example stop
  *  @function Polling.get('process1').stop()
  *  
