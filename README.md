@@ -1,5 +1,5 @@
 # JPolling
-JS polling
+Whenever it is necessary to perform a timed function JPooling and a great help in every need
 
 Execute timed functions 
 
