@@ -1,28 +1,49 @@
 # JPolling
 JS polling
 
-it recursively repeats and executes a programmed function
+Execute timed functions 
+
+### Controll single process
 
 __Example start__
 ```
-var polling= new JPolling();
-polling.start(6000,myfunctionTest)
+JPolling.get("process1").start(300, myBeforefunction, 120000, mySecondfunction);
+
 ```            
 __Example stop__   
 ```
-polling.stop() 
+JPolling.get('process1').stop()
+```
+__Example play__   
+```
+JPolling.get('process1').play()
 ```
 __Example restart__  
 ```
-polling.restart() 
+JPolling.get('process1').restart()
 ```
 
-__Second Example__
+### Controll all process
 
-__Example 2__
+ __Example stopAll__  
 ```
-var polling= new JPolling();
-polling.start(100,myBeforefunction,30000,mySecondfunction)      
+JPolling.stopAll()
+```
+
+__Example playAll__  
+```
+JPolling.playAll()
+```
+
+__Example restartAll__  
+```
+JPolling.restartAll()
+```
+
+__Example__
+```
+JPolling.get("process1").start(300, myBeforefunction, 120000, mySecondfunction);
+     
       
  function myBeforefunction(ctx){
    console.log("progress "+ctx.progress)
