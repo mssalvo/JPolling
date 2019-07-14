@@ -7,38 +7,205 @@ and open the template in the editor.
 
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>JPolling - Execute timed functions</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-           <script src="JPooling.js"></script>
+        <script src="JPooling.js"></script>
+        <style type="text/css" >
+            .content{
+                width: 100%;
+                float: left;
+            }  
+            input[type='button']{
+                float: left;
+                height: 40px;
+                padding: 10px;
+                width: 100px;
+                margin-right: 10px;
+                margin-bottom: 10px;
+            }
+            code{
+                float: left;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                padding-left: 5px;
+                padding-right:5px;
+                color: #8e8e8e;
+                line-height: 1.6;
+            }
+            .process{
+                width: 28%;
+                float: left;
+            }
+            .boxaction{
+                width: 70%;
+                float: left;
+            }
+            .text{
+                width: 96%;
+                padding: 20px;
+                font-size: 22px;
+            }
+              .text-desc{
+                width: 97%;
+                padding: 15px;
+                font-size: 18px;
+            }
+            .right{
+                float: right   
+            }
+            .footer{
+                width: 96%;
+                height: 300px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                position: relative;
+            }
+            .boxProgress{
+                width: 100%;
+                height: 50px;
+                padding-top:22px;
+            }
+            .progress{
+               width:100%;
+               background: #e4e4e4;
+               height:6px;
+               padding-top:2px;
+            }
+              .progressOut{
+               width:100%;
+               background: tomato;
+               height:3px;
+            }
+        </style>
     </head>
     <body>
-        <script>
-         var polling= new JPolling();
-            polling.start(2000,myBeforefuncTest)
+        <div class="content">
+            <div class="text"> Example Istance processo  <b>Execute timed functions</b></div>
+
+            <code> 
+                
+                Istance  processo <br>     
+                <b> JPolling.get("process1").start(300, myBeforefunction, 120000, mySecondfunction);</b><br>  
+                <br>  
+                Let's analyze in detail the instruction above.<br>  
+                the get method takes a parameter, the unique name of the process,<br>  
+                if passed a process with that name will be created, otherwise it will be assigned a name automatically<br>  
+                to retrieve the automatically created name,<br>   example:<br>  
+                <b>var process = JPolling.get ("process1"). start (300, myBeforefunction, 120000, mySecondfunction);<br>  
+                  Process Name = process.getId ()</b><br>  
+                Good thing and always assign a unique process name.<br>  
+                Now let's see in detail the start method.<br>  
+                The start method accepts 4 parameters<br>  
+                1) execution time before declared function<br>  
+                2) first function<br>  
+                3) execution time according to declared function or total duration of the process<br>  
+                4) second function<br>  
+            </code>        
+        </div>
+        <div class="content">
+            <div class="process"><div class="text">Execute timed functions&nbsp;</div></div>
+            <div class="boxaction">
+                <div class="text"> Controll singol process</div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="process"><input type="text" id="pc1" value="" > % Progress for TimeEnd</div>
+            <div class="boxaction">
+                <input type="button" value="Stop" onclick="JPolling.get('process1').stop()" ><code>JPolling.get('process1').stop()</code>
+                <input type="button" value="Play" onclick="JPolling.get('process1').play()" ><code>JPolling.get('process1').play()</code>
+                <input type="button" value="Restart" onclick="JPolling.get('process1').restart()"><code>JPolling.get('process1').restart()</code>
+            </div>
+            <div class="process"><input type="number" id="timepc1" value="100" >[Set Time (ms) First Function]</div>
+              <div class="boxaction">
+                  <input type="button" value="Set Time" onclick="JPolling.get('process1').setTime(document.getElementById('timepc1').value).restart();" ><code>JPolling.get('process1').setTime(100)</code>
+            </div>
+              <div class="process"><input type="number" id="timeEndpc1" value="30000" >[Set Time End (ms) Second Function]</div>
+              <div class="boxaction">
+                  <input type="button" value="Set TimeEnd" onclick="JPolling.get('process1').setTimeEnd(document.getElementById('timeEndpc1').value).restart();" ><code>JPolling.get('process1').setTimeEnd(120000)</code>
+            </div>
+            <div class="process"><input type="text" id="pc2" value="" >  % Progress for TimeEnd</div>
+            <div class="boxaction">
+                <input type="button" value="Stop" onclick="JPolling.get('process2').stop()" ><code>JPolling.get('process2').stop()</code>
+                <input type="button" value="Play" onclick="JPolling.get('process2').play()" ><code>JPolling.get('process2').play()</code>
+                <input type="button" value="Restart" onclick="JPolling.get('process2').restart()"><code>JPolling.get('process2').restart()</code>
+            </div>
             
-            function myBeforefuncTest(){
-              console.log("hello! Test JPolling..")  
-            }
-        </script>
-        
+               <div class="process"><input type="number" id="timepc2" value="250" >[Set Time First Function]</div>
+              <div class="boxaction">
+                  <input type="button" value="Set Time" onclick="JPolling.get('process2').setTime(document.getElementById('timepc2').value).restart();" ><code>JPolling.get('process2').setTime(300)</code>
+            </div>
+              <div class="process"><input type="number" id="timeEndpc2" value="60000" >[Set Time End Second Function]</div>
+              <div class="boxaction">
+                  <input type="button" value="Set TimeEnd" onclick="JPolling.get('process2').setTimeEnd(document.getElementById('timeEndpc2').value).restart();" ><code>JPolling.get('process2').setTimeEnd(120000)</code>
+            </div>
+            
+        </div>
+        <div class="content">
+            <div class="text"> Controll all process</div>
+            <div class="content">
+                <input type="button" value="Stop All" onclick="JPolling.stopAll()" ><code>JPolling.stopAll()</code>
+                <input type="button" value="Play All" onclick="JPolling.playAll()" ><code>JPolling.playAll()</code>
+                <input type="button" value="Restart All" onclick="JPolling.restartAll()"><code>JPolling.restartAll()</code>
+            </div>
+        </div>
+        <div class="content"> 
+        <div class="footer">
+            <div class="text-desc" id='infoProgress1'> </div>
+            <div class="boxProgress">
+                <div class="progress">
+                    <div class="progressOut" id='progress1'></div>   
+                </div>   
+            </div>
+            <div class="text-desc" id='infoProgress2'> </div>
+            <div class="boxProgress">
+                <div class="progress">
+                <div class="progressOut" id='progress2'></div>      
+                </div>   
+            </div>
+        </div>
+            </div> 
         <script>
-        
-          // Another example:
-         var polling2= new JPolling();
-        //parameters: first time function your function, time second function your function
-        polling2.start(500,myBeforefunction,30000,mySecondfunction)      
-      
-    function myBeforefunction(ctx){
-   console.log("progress "+ctx.progress)
-           }
-        
-    function mySecondfunction(ctx){
-        ctx.stop();     
-        console.log("STOPPPPPP!!!! Test JPolling..")       
+            // JPolling.get().start(3000, myBeforefuncTest);
+
+            function myBeforefuncTest(t) {
+
+                console.log("hello! Test JPolling..")
             }
         </script>
-        
+
+        <script>
+
+      
+            // start > parameters: first time function your function, time second function your function
+
+            JPolling.get("process2").start(250, myBeforefunction, 60000, mySecondfunction);
+
+            var idProcesso = JPolling.get("process1").start(100, myBeforefunction2, 30000, mySecondfunction).getId();
+ 
+
+            function myBeforefunction(p) {
+                console.log("progress " + p.progress)
+                document.getElementById("pc2").value = "Process 2: " + p.progress+" %"
+                 document.getElementById("progress2").style.width = p.progress+"%"
+                 document.getElementById("infoProgress2").innerHTML="Name Process: "+p.getId()+"<br> [ (TimeEnd ms: "+p.timeEnd+") scheduled time duration in seconds "+(p.timeEnd/1000)+" ] Time for single function in (ms) : "+p.time +" number of functions performed: "+p.secondCount+" Seconds passed: "+(p.time*p.secondCount/1000);
+            }
+
+            function mySecondfunction(ctx) {
+                ctx.stop();
+                //console.log("STOPPPPPP!!!! Test JPolling..")
+                 
+            }
+
+            function myBeforefunction2(p) {
+                document.getElementById("pc1").value = "Process 1: " + p.progress+" %"
+                document.getElementById("progress1").style.width = p.progress+"%"
+                document.getElementById("infoProgress1").innerHTML="Name Process: "+p.getId()+"<br> [ (TimeEnd ms: "+p.timeEnd+") scheduled time duration in seconds "+(p.timeEnd/1000)+" ] Time for single function in (ms) : "+p.time +" number of functions performed: "+p.secondCount+" Seconds passed: "+(p.time*p.secondCount/1000);
+                
+            }
+
+        </script>
+
         <div> JPolling ... </div>
     </body>
 </html>
