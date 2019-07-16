@@ -1,4 +1,4 @@
-/**
+/*!
  * @author salvo mariniello - salvo.mariniello@gmail.com 
  * https://github.com/mssalvo/JPolling
  *
@@ -48,7 +48,7 @@
  *  @example restartAll
  *  @function JPolling.restartAll()
  *  
- * */
+ */
 
 function JPolProcess() {
     this.time = 1000;//Default 1 secondo
